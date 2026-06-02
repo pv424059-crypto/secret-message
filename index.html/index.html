@@ -1,137 +1,186 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Secret Message</title>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Secret Message 💖</title>
 
 <style>
+
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family: 'Arial', sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
 }
 
 body{
-  height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  background:linear-gradient(135deg,#141e30,#243b55);
-  overflow:hidden;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(-45deg,#ff9a9e,#fad0c4,#a18cd1,#fbc2eb);
+background-size:400% 400%;
+animation:bg 10s ease infinite;
+overflow:hidden;
+}
+
+@keyframes bg{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
 }
 
 .card{
-  width:90%;
-  max-width:360px;
-  background:rgba(255,255,255,0.15);
-  backdrop-filter:blur(15px);
-  border-radius:25px;
-  padding:30px;
-  text-align:center;
-  color:white;
-  box-shadow:0 20px 50px rgba(0,0,0,0.4);
-  border:1px solid rgba(255,255,255,0.25);
-  animation:pop 1s ease;
+width:90%;
+max-width:380px;
+background:rgba(255,255,255,0.18);
+backdrop-filter:blur(18px);
+padding:30px;
+border-radius:30px;
+text-align:center;
+box-shadow:0 25px 60px rgba(0,0,0,0.25);
+border:1px solid rgba(255,255,255,.3);
+z-index:10;
 }
 
-@keyframes pop{
-  from{transform:scale(0.8);opacity:0;}
-  to{transform:scale(1);opacity:1;}
-}
-
-.lock{
-  font-size:55px;
-  margin-bottom:15px;
+.profile{
+width:130px;
+height:130px;
+border-radius:50%;
+object-fit:cover;
+border:5px solid white;
+box-shadow:0 0 25px rgba(255,255,255,.6);
+margin-bottom:15px;
 }
 
 h1{
-  font-size:28px;
-  margin-bottom:10px;
+color:white;
+margin-bottom:8px;
 }
 
-p{
-  color:#e8e8e8;
-  font-size:15px;
-  margin-bottom:25px;
+.sub{
+color:white;
+font-size:14px;
+margin-bottom:20px;
 }
 
-button{
-  border:none;
-  padding:14px 28px;
-  border-radius:40px;
-  font-size:17px;
-  cursor:pointer;
-  background:linear-gradient(135deg,#ff758c,#ff7eb3);
-  color:white;
-  box-shadow:0 10px 25px rgba(255,118,150,0.5);
-  transition:0.3s;
+.btn{
+padding:14px 28px;
+border:none;
+border-radius:40px;
+background:white;
+color:#ff4d79;
+font-size:17px;
+font-weight:bold;
+cursor:pointer;
+transition:.3s;
 }
 
-button:hover{
-  transform:scale(1.07);
+.btn:hover{
+transform:scale(1.08);
 }
 
 #msg{
-  display:none;
-  margin-top:25px;
-  padding:20px;
-  border-radius:20px;
-  background:rgba(255,255,255,0.18);
-  font-size:18px;
-  line-height:1.6;
-  animation:fade 1s ease;
+display:none;
+margin-top:20px;
+padding:20px;
+border-radius:20px;
+background:rgba(255,255,255,.2);
+color:white;
+font-size:18px;
+line-height:1.7;
+animation:fade 1s ease;
 }
 
 @keyframes fade{
-  from{opacity:0;transform:translateY(20px);}
-  to{opacity:1;transform:translateY(0);}
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
 }
 
 .heart{
-  position:absolute;
-  color:rgba(255,255,255,0.4);
-  font-size:25px;
-  animation:float 6s linear infinite;
+position:absolute;
+bottom:-50px;
+font-size:28px;
+animation:float 8s linear infinite;
+opacity:.8;
 }
 
 @keyframes float{
-  from{transform:translateY(100vh);opacity:1;}
-  to{transform:translateY(-10vh);opacity:0;}
+0%{
+transform:translateY(0);
+opacity:1;
 }
+100%{
+transform:translateY(-120vh);
+opacity:0;
+}
+}
+
 </style>
 </head>
-
 <body>
 
-<div class="heart" style="left:10%; animation-delay:0s;">✨</div>
-<div class="heart" style="left:30%; animation-delay:2s;">💫</div>
-<div class="heart" style="left:60%; animation-delay:1s;">✨</div>
-<div class="heart" style="left:80%; animation-delay:3s;">💫</div>
+<audio autoplay loop controls style="position:absolute;top:10px;">
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<div class="heart" style="left:10%;animation-delay:0s;">💖</div>
+<div class="heart" style="left:25%;animation-delay:2s;">✨</div>
+<div class="heart" style="left:45%;animation-delay:4s;">💖</div>
+<div class="heart" style="left:65%;animation-delay:1s;">💫</div>
+<div class="heart" style="left:85%;animation-delay:3s;">💖</div>
 
 <div class="card">
-  <div class="lock">🔒</div>
-  <h1>Secret Message</h1>
-  <p>Ek chhota sa secret message tumhare liye...</p>
 
-  <button onclick="showMsg()">Open Message ✨</button>
+<img src="profile.jpg" class="profile">
 
-  <div id="msg">
-    🎉 Congratulations!
-    <br><br>
-    Tumne secret message unlock kar liya. 🔓
-    <br><br>
-    Ab jaldi se ek smile karo... 😁
-    <br><br>
-    Nahi ki to system automatically tumhe  
-    <b>"Cute Person"</b> declare kar dega. 😂
-  </div>
+<h1>Hey 👋</h1>
+
+<p class="sub">
+Ek chhota sa secret message tumhare liye ✨
+</p>
+
+<button class="btn" onclick="showMsg()">
+Open Message 💌
+</button>
+
+<div id="msg">
+
+🎉 Congratulations!
+
+<br><br>
+
+Tumne successfully secret message unlock kar liya. 🔓
+
+<br><br>
+
+Ab reward ke roop me ek smile deni padegi. 😁
+
+<br><br>
+
+Nahi di to system automatically tumhe
+
+<b>"Cute Person"</b>
+
+declare kar dega. 😂
+
+</div>
+
 </div>
 
 <script>
+
 function showMsg(){
-  document.getElementById("msg").style.display = "block";
+document.getElementById("msg").style.display="block";
 }
+
 </script>
 
 </body>
